@@ -1,0 +1,405 @@
+"use client";
+
+import { motion } from "framer-motion";
+import {
+  Calendar,
+  Clock,
+  ArrowRight,
+  Search,
+  BookOpen,
+  User,
+  Sparkles,
+} from "lucide-react";
+import Link from "next/link";
+import { useState, useMemo } from "react";
+import { Button } from "@/components/ui/button";
+import { PageTransition } from "@/components/layout/page-transition";
+import { BLOG_POSTS, BLOG_CATEGORIES } from "@/lib/blog-data";
+
+export default function BlogsPage() {
+  const [selectedCategory, setSelectedCategory] = useState("All");
+  const [searchQuery, setSearchQuery] = useState("");
+
+  const featured = BLOG_POSTS.find((p) => p.featured);
+  const regularPosts = BLOG_POSTS.filter((p) => !p.featured);
+
+  const filteredPosts = useMemo(() => {
+    let posts = regularPosts;
+
+    if (selectedCategory !== "All") {
+      posts = posts.filter((p) => p.category === selectedCategory);
+    }
+
+    if (searchQuery.trim()) {
+      const q = searchQuery.toLowerCase();
+      posts = posts.filter(
+        (p) =>
+          p.title.toLowerCase().includes(q) ||
+          p.excerpt.toLowerCase().includes(q) ||
+          p.category.toLowerCase().includes(q) ||
+          p.author.toLowerCase().includes(q)
+      );
+    }
+
+    return posts;
+  }, [selectedCategory, searchQuery, regularPosts]);
+
+  return (
+    <PageTransition>
+      {/* ═══════════════════════ HERO ═══════════════════════ */}
+      <section className="relative py-14 sm:py-20 md:py-28 overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-br from-ivory via-ivory-dark to-ivory" />
+        <div className="absolute inset-0 vedic-pattern opacity-20" />
+        {/* Decorative editorial lines */}
+        <div className="absolute top-0 left-[20%] w-px h-full bg-maroon/5 hidden lg:block" />
+        <div className="absolute top-0 right-[20%] w-px h-full bg-maroon/5 hidden lg:block" />
+
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7 }}
+            className="max-w-3xl"
+          >
+            <motion.div
+              initial={{ opacity: 0, x: -20 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ delay: 0.2 }}
+              className="inline-flex items-center gap-2 bg-maroon/10 px-4 py-1.5 rounded-full mb-6"
+            >
+              <BookOpen className="w-3.5 h-3.5 text-maroon" />
+              <span className="text-xs font-medium text-maroon uppercase tracking-wider">
+                Journal & Insights
+              </span>
+            </motion.div>
+
+            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold text-maroon leading-[1.05] mb-5">
+              Stories, Wisdom{" "}
+              <span className="text-saffron-dark">&</span> Tradition
+            </h1>
+            <p className="text-charcoal-light text-lg md:text-xl max-w-2xl leading-relaxed">
+              Explore the depth of Vedic knowledge, spiritual practices, and the sacred 
+              heritage of Gokarna through our curated articles.
+            </p>
+          </motion.div>
+
+          {/* Search */}
+          <motion.div
+            initial={{ opacity: 0, y: 15 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.4 }}
+            className="mt-10 max-w-md"
+          >
+            <div className="relative">
+              <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-charcoal-light" />
+              <input
+                type="text"
+                value={searchQuery}
+                onChange={(e) => setSearchQuery(e.target.value)}
+                placeholder="Search articles..."
+                className="w-full pl-11 pr-4 py-3 bg-white border border-ivory-dark rounded-xl text-charcoal placeholder:text-charcoal-light/50 focus:outline-none focus:ring-2 focus:ring-saffron shadow-sm text-sm"
+              />
+            </div>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* ═══════════════════════ FEATURED ARTICLE ═══════════════════════ */}
+      {featured && !searchQuery && selectedCategory === "All" && (
+        <section className="py-12 md:py-16">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+            >
+              <Link href={`/blogs/${featured.slug}`}>
+                <article className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-10 group">
+                  {/* Image — takes 7 columns for asymmetry */}
+                  <div className="lg:col-span-7 relative aspect-[16/10] lg:aspect-[4/3] rounded-2xl overflow-hidden bg-gradient-to-br from-maroon/15 via-ivory-dark to-saffron/10">
+                    <img
+                      src={featured.image}
+                      alt={featured.title}
+                      className="absolute inset-0 w-full h-full object-cover"
+                      loading="eager"
+                    />
+                    <div className="absolute inset-0 flex items-center justify-center">
+                      <BookOpen className="w-16 h-16 text-maroon/15" />
+                    </div>
+                    {/* Featured label */}
+                    <div className="absolute top-4 left-4 flex items-center gap-1.5 bg-saffron text-charcoal px-3 py-1.5 rounded-full">
+                      <Sparkles className="w-3 h-3" />
+                      <span className="text-xs font-bold uppercase tracking-wider">Featured</span>
+                    </div>
+                    {/* Hover overlay */}
+                    <div className="absolute inset-0 bg-maroon/0 group-hover:bg-maroon/10 transition-colors duration-500" />
+                  </div>
+
+                  {/* Content — takes 5 columns */}
+                  <div className="lg:col-span-5 flex flex-col justify-center">
+                    <span className="text-saffron-dark text-sm font-medium uppercase tracking-wider mb-3">
+                      {featured.category}
+                    </span>
+                    <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-maroon leading-tight mb-4 group-hover:text-maroon-light transition-colors">
+                      {featured.title}
+                    </h2>
+                    <p className="text-charcoal-light leading-relaxed mb-6 text-base">
+                      {featured.excerpt}
+                    </p>
+
+                    {/* Meta */}
+                    <div className="flex items-center gap-4 mb-6">
+                      <div className="flex items-center gap-2">
+                        <div className="w-8 h-8 bg-maroon/10 rounded-full flex items-center justify-center">
+                          <User className="w-4 h-4 text-maroon" />
+                        </div>
+                        <div>
+                          <p className="text-xs font-medium text-charcoal">{featured.author}</p>
+                          <p className="text-[10px] text-charcoal-light">{featured.authorRole}</p>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div className="flex items-center gap-4 text-xs text-charcoal-light">
+                      <span className="flex items-center gap-1">
+                        <Calendar className="w-3 h-3" />
+                        {featured.date}
+                      </span>
+                      <span className="flex items-center gap-1">
+                        <Clock className="w-3 h-3" />
+                        {featured.readTime}
+                      </span>
+                    </div>
+
+                    <div className="mt-6">
+                      <span className="inline-flex items-center gap-1.5 text-sm font-medium text-maroon group-hover:text-saffron-dark transition-colors">
+                        Read Full Article <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                      </span>
+                    </div>
+                  </div>
+                </article>
+              </Link>
+            </motion.div>
+          </div>
+        </section>
+      )}
+
+      {/* ═══════════════════════ ARTICLES GRID ═══════════════════════ */}
+      <section className="py-12 md:py-16">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          {/* Section label */}
+          <div className="flex items-center justify-between mb-8">
+            <h2 className="text-xl md:text-2xl font-bold text-maroon">
+              {selectedCategory === "All" ? "Latest Articles" : selectedCategory}
+            </h2>
+            <p className="text-sm text-charcoal-light">
+              {filteredPosts.length} article{filteredPosts.length !== 1 ? "s" : ""}
+            </p>
+          </div>
+
+          {filteredPosts.length > 0 ? (
+            <>
+              {/* First row: 2-column editorial layout (large + small) */}
+              {filteredPosts.length >= 2 && (
+                <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 mb-8">
+                  {/* Large card */}
+                  <motion.div
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    className="lg:col-span-8"
+                  >
+                    <Link href={`/blogs/${filteredPosts[0].slug}`}>
+                      <article className="group h-full">
+                        <div className="relative aspect-[16/9] rounded-xl overflow-hidden bg-gradient-to-br from-maroon/10 via-ivory-dark to-saffron/8 mb-4">
+                          <img
+                            src={filteredPosts[0].image}
+                            alt={filteredPosts[0].title}
+                            className="absolute inset-0 w-full h-full object-cover"
+                            loading="lazy"
+                            onError={(e) => { e.currentTarget.style.display = 'none'; }}
+                          />
+                          <div className="absolute inset-0 flex items-center justify-center">
+                            <BookOpen className="w-12 h-12 text-maroon/15" />
+                          </div>
+                          <div className="absolute inset-0 bg-maroon/0 group-hover:bg-maroon/5 transition-colors duration-300" />
+                          <div className="absolute top-3 left-3 bg-white/90 backdrop-blur-sm text-maroon text-xs font-semibold px-2.5 py-1 rounded-full">
+                            {filteredPosts[0].category}
+                          </div>
+                        </div>
+                        <div className="flex items-center gap-3 text-xs text-charcoal-light mb-2">
+                          <span className="flex items-center gap-1">
+                            <Calendar className="w-3 h-3" />
+                            {filteredPosts[0].date}
+                          </span>
+                          <span className="flex items-center gap-1">
+                            <Clock className="w-3 h-3" />
+                            {filteredPosts[0].readTime}
+                          </span>
+                        </div>
+                        <h3 className="font-serif text-xl md:text-2xl font-bold text-maroon mb-2 group-hover:text-maroon-light transition-colors leading-snug">
+                          {filteredPosts[0].title}
+                        </h3>
+                        <p className="text-charcoal-light text-sm leading-relaxed line-clamp-2">
+                          {filteredPosts[0].excerpt}
+                        </p>
+                        <div className="flex items-center gap-2 mt-3">
+                          <div className="w-6 h-6 bg-maroon/10 rounded-full flex items-center justify-center">
+                            <User className="w-3 h-3 text-maroon" />
+                          </div>
+                          <span className="text-xs text-charcoal">{filteredPosts[0].author}</span>
+                        </div>
+                      </article>
+                    </Link>
+                  </motion.div>
+
+                  {/* Side column: stacked small cards */}
+                  <div className="lg:col-span-4 flex flex-col gap-6">
+                    {filteredPosts.slice(1, 3).map((post, index) => (
+                      <motion.div
+                        key={post.slug}
+                        initial={{ opacity: 0, y: 15 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ delay: index * 0.1 }}
+                      >
+                        <Link href={`/blogs/${post.slug}`}>
+                          <article className="group flex gap-4">
+                            {/* Thumbnail */}
+                            <div className="w-24 h-24 md:w-28 md:h-28 shrink-0 rounded-lg overflow-hidden bg-gradient-to-br from-maroon/10 via-ivory-dark to-saffron/8 relative">
+                              <img
+                                src={post.image}
+                                alt={post.title}
+                                className="absolute inset-0 w-full h-full object-cover"
+                                loading="lazy"
+                                onError={(e) => { e.currentTarget.style.display = 'none'; }}
+                              />
+                              <div className="absolute inset-0 flex items-center justify-center">
+                                <BookOpen className="w-6 h-6 text-maroon/15" />
+                              </div>
+                            </div>
+                            {/* Text */}
+                            <div className="flex flex-col justify-center min-w-0">
+                              <span className="text-saffron-dark text-[10px] font-semibold uppercase tracking-wider mb-1">
+                                {post.category}
+                              </span>
+                              <h3 className="font-serif text-sm font-semibold text-maroon leading-snug mb-1.5 group-hover:text-maroon-light transition-colors line-clamp-2">
+                                {post.title}
+                              </h3>
+                              <div className="flex items-center gap-2 text-[10px] text-charcoal-light">
+                                <span>{post.date}</span>
+                                <span>•</span>
+                                <span>{post.readTime}</span>
+                              </div>
+                            </div>
+                          </article>
+                        </Link>
+                      </motion.div>
+                    ))}
+                  </div>
+                </div>
+              )}
+
+              {/* Remaining posts: 3-column grid with different card style */}
+              {filteredPosts.length > 3 && (
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-8 pt-8 border-t border-ivory-dark">
+                  {filteredPosts.slice(3).map((post, index) => (
+                    <motion.div
+                      key={post.slug}
+                      initial={{ opacity: 0, y: 15 }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      viewport={{ once: true }}
+                      transition={{ delay: index * 0.08 }}
+                    >
+                      <Link href={`/blogs/${post.slug}`}>
+                        <article className="group">
+                          {/* Image */}
+                          <div className="relative aspect-[3/2] rounded-xl overflow-hidden bg-gradient-to-br from-maroon/10 via-ivory-dark to-saffron/8 mb-4">
+                            <img
+                              src={post.image}
+                              alt={post.title}
+                              className="absolute inset-0 w-full h-full object-cover"
+                              loading="lazy"
+                              onError={(e) => { e.currentTarget.style.display = 'none'; }}
+                            />
+                            <div className="absolute inset-0 flex items-center justify-center">
+                              <BookOpen className="w-8 h-8 text-maroon/15" />
+                            </div>
+                            <div className="absolute top-3 left-3 bg-white/90 backdrop-blur-sm text-maroon text-[10px] font-semibold px-2 py-0.5 rounded-full">
+                              {post.category}
+                            </div>
+                          </div>
+                          {/* Meta */}
+                          <div className="flex items-center gap-3 text-xs text-charcoal-light mb-2">
+                            <span>{post.date}</span>
+                            <span>•</span>
+                            <span>{post.readTime}</span>
+                          </div>
+                          {/* Title */}
+                          <h3 className="font-serif text-base font-semibold text-maroon leading-snug mb-2 group-hover:text-maroon-light transition-colors">
+                            {post.title}
+                          </h3>
+                          <p className="text-charcoal-light text-sm leading-relaxed line-clamp-2">
+                            {post.excerpt}
+                          </p>
+                          {/* Author */}
+                          <div className="flex items-center gap-2 mt-3">
+                            <div className="w-5 h-5 bg-maroon/10 rounded-full flex items-center justify-center">
+                              <User className="w-2.5 h-2.5 text-maroon" />
+                            </div>
+                            <span className="text-xs text-charcoal-light">{post.author}</span>
+                          </div>
+                        </article>
+                      </Link>
+                    </motion.div>
+                  ))}
+                </div>
+              )}
+            </>
+          ) : (
+            <div className="text-center py-20">
+              <BookOpen className="w-12 h-12 text-charcoal-light/30 mx-auto mb-4" />
+              <p className="text-charcoal-light text-lg mb-2">No articles found.</p>
+              <button
+                onClick={() => {
+                  setSearchQuery("");
+                  setSelectedCategory("All");
+                }}
+                className="text-sm font-medium text-maroon hover:text-maroon-light transition-colors"
+              >
+                ← View all articles
+              </button>
+            </div>
+          )}
+        </div>
+      </section>
+
+      {/* ═══════════════════════ NEWSLETTER / CTA ═══════════════════════ */}
+      <section className="py-16 md:py-20 bg-maroon relative overflow-hidden">
+        <div className="absolute inset-0 vedic-pattern opacity-5" />
+        <div className="relative max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+          >
+            <BookOpen className="w-8 h-8 text-saffron mx-auto mb-4" />
+            <h2 className="text-2xl md:text-3xl font-bold text-white mb-3">
+              Deepen Your Spiritual Knowledge
+            </h2>
+            <p className="text-white/70 mb-8">
+              New articles on Vedic wisdom, rituals, and Gokarna&apos;s sacred heritage published every week.
+            </p>
+            <Link href="/talk-to-us">
+              <Button variant="saffron" size="lg">
+                Book a Consultation
+                <ArrowRight className="w-5 h-5" />
+              </Button>
+            </Link>
+          </motion.div>
+        </div>
+      </section>
+    </PageTransition>
+  );
+}
