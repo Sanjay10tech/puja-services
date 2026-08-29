@@ -14,16 +14,13 @@ import {
   Shield,
   Heart,
   ChevronRight,
-  Clock,
   CheckCircle2,
   Quote,
-  Camera,
   MessageCircle,
 } from "lucide-react";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { SectionHeading } from "@/components/ui/section-heading";
-import { Card } from "@/components/ui/card";
 import { PageTransition } from "@/components/layout/page-transition";
 import { WHATSAPP_LINK } from "@/lib/constants";
 

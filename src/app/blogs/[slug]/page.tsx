@@ -7,7 +7,6 @@ import {
   ArrowRight,
   ArrowLeft,
   User,
-  BookOpen,
   Share2,
   MessageCircle,
   Link2,

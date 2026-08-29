@@ -8,7 +8,6 @@ import {
   Star,
   Users,
   Phone,
-  Calendar,
   MapPin,
   BookOpen,
   Camera,

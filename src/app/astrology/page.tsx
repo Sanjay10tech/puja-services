@@ -10,15 +10,12 @@ import {
   CheckCircle2,
   Clock,
   Phone,
-  MapPin,
   User,
   Calendar,
-  MessageSquare,
   Shield,
   Eye,
   Heart,
   Compass,
-  Send,
 } from "lucide-react";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
@@ -74,33 +71,6 @@ const astrologyServices = [
       "Year-ahead predictions covering all life areas with monthly breakdown, key dates, and personalized guidance.",
     price: "₹1,800",
     duration: "45 min consultation",
-  },
-];
-
-const doshas = [
-  {
-    name: "Mangal Dosha",
-    description: "Mars placement affecting marriage and relationships. Specific poojas and mantras bring harmony.",
-  },
-  {
-    name: "Kaal Sarp Dosha",
-    description: "All planets between Rahu-Ketu creating life obstacles. Powerful Nag pooja provides relief.",
-  },
-  {
-    name: "Shani Dosha / Sade Sati",
-    description: "Saturn's transit bringing challenges in career and health. Shani Shanti resolves difficulties.",
-  },
-  {
-    name: "Pitru Dosha",
-    description: "Ancestral karmic patterns blocking progress. Shradh rituals and Pitru pooja bring blessings.",
-  },
-  {
-    name: "Grahan Dosha",
-    description: "Eclipse-related affliction in birth chart. Specific mantras and daan bring planetary peace.",
-  },
-  {
-    name: "Nadi Dosha",
-    description: "Compatibility issue in Kundli matching. Expert analysis reveals true compatibility beyond scores.",
   },
 ];
 

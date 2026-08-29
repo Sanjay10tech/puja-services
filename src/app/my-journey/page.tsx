@@ -11,9 +11,6 @@ import {
   Award,
   Star,
   ArrowRight,
-  MapPin,
-  Clock,
-  Camera,
   Sparkles,
 } from "lucide-react";
 import Link from "next/link";
