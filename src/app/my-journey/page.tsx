@@ -120,8 +120,9 @@ const experienceStats = [
 ];
 
 const photoStory: { title: string; aspect: string; image: string }[] = [
-  // Images removed — add new images here in the same format:
-  // { title: "Your Title", aspect: "tall", image: "/images/your-image.jpg" },
+  { title: "Sacred Ceremony", aspect: "wide", image: "/images/moment-1.jpg" },
+  { title: "Vedic Rituals", aspect: "wide", image: "/images/moment-2.jpg" },
+  { title: "Divine Blessings", aspect: "wide", image: "/images/moment-3.jpg" },
 ];
 
 /* ───────────────────────── PAGE ───────────────────────── */
