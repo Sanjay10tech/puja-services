@@ -4,17 +4,9 @@ import { motion, AnimatePresence } from "framer-motion";
 import {
   Phone,
   MessageCircle,
-  Calendar,
-  User,
-  Clock,
   CheckCircle2,
   ArrowRight,
   ArrowLeft,
-  MapPin,
-  Star,
-  BookOpen,
-  CreditCard,
-  Sparkles,
 } from "lucide-react";
 import { useState } from "react";
 import Link from "next/link";
@@ -38,13 +30,6 @@ const poojaOptions = [
   { value: "wedding", label: "Wedding Ceremony" },
 ];
 
-const panditOptions = [
-  { value: "raghunath", name: "Pandit Raghunath Sharma", exp: "20+ yrs", rating: 4.9, spec: "Shiva Rituals" },
-  { value: "vishwanath", name: "Pandit Vishwanath Bhat", exp: "15+ yrs", rating: 4.8, spec: "Navagraha & Astrology" },
-  { value: "subrahmanya", name: "Pandit Subrahmanya Acharya", exp: "25+ yrs", rating: 5.0, spec: "Weddings & Griha Pravesh" },
-  { value: "narasimha", name: "Pandit Narasimha Joshi", exp: "18+ yrs", rating: 4.9, spec: "Pitru Karma" },
-];
-
 const timeSlots = [
   "Early Morning (5–7 AM)",
   "Morning (7–10 AM)",
@@ -56,11 +41,10 @@ const timeSlots = [
 
 const STEPS = [
   { num: 1, label: "Select Pooja" },
-  { num: 2, label: "Select Pandit" },
-  { num: 3, label: "Date & Time" },
-  { num: 4, label: "Your Details" },
-  { num: 5, label: "Review" },
-  { num: 6, label: "Confirm" },
+  { num: 2, label: "Date & Time" },
+  { num: 3, label: "Your Details" },
+  { num: 4, label: "Review" },
+  { num: 5, label: "Confirm" },
 ];
 
 /* ───────────────────────── PAGE ───────────────────────── */
@@ -69,7 +53,6 @@ export default function TalkToUsPage() {
   const [step, setStep] = useState(1);
   const [formData, setFormData] = useState({
     pooja: "",
-    pandit: "",
     date: "",
     time: "",
     name: "",
@@ -90,12 +73,11 @@ export default function TalkToUsPage() {
   const validateStep = (): boolean => {
     const newErrors: Record<string, string> = {};
     if (step === 1 && !formData.pooja) newErrors.pooja = "Please select a pooja";
-    if (step === 2 && !formData.pandit) newErrors.pandit = "Please select a pandit";
-    if (step === 3) {
+    if (step === 2) {
       if (!formData.date) newErrors.date = "Please select a date";
       if (!formData.time) newErrors.time = "Please select a time";
     }
-    if (step === 4) {
+    if (step === 3) {
       if (!formData.name || formData.name.length < 2) newErrors.name = "Please enter your name";
       if (!formData.phone || formData.phone.length < 10) newErrors.phone = "Please enter a valid phone number";
       if (!formData.location) newErrors.location = "Please enter your location";
@@ -105,7 +87,7 @@ export default function TalkToUsPage() {
   };
 
   const nextStep = () => {
-    if (validateStep()) setStep((s) => Math.min(s + 1, 6));
+    if (validateStep()) setStep((s) => Math.min(s + 1, 5));
   };
 
   const prevStep = () => setStep((s) => Math.max(s - 1, 1));
@@ -126,11 +108,10 @@ export default function TalkToUsPage() {
     }
 
     setIsSubmitting(false);
-    setStep(6);
+    setStep(5);
   };
 
   const selectedPooja = poojaOptions.find((p) => p.value === formData.pooja);
-  const selectedPandit = panditOptions.find((p) => p.value === formData.pandit);
 
   const confirmWhatsAppUrl = `https://wa.me/${BRAND.whatsappNumber.replace(/[^0-9]/g, "")}?text=${encodeURIComponent(
     generateWhatsAppMessage({
@@ -215,43 +196,9 @@ export default function TalkToUsPage() {
               </motion.div>
             )}
 
-            {/* STEP 2: SELECT PANDIT */}
+            {/* STEP 2: DATE & TIME */}
             {step === 2 && (
               <motion.div key="step2" initial={{ opacity: 0, x: 20 }} animate={{ opacity: 1, x: 0 }} exit={{ opacity: 0, x: -20 }}>
-                <h2 className="text-xl md:text-2xl font-bold text-maroon mb-2">Choose Your Pandit</h2>
-                <p className="text-charcoal-light text-sm mb-6">Select an experienced pandit for your ceremony.</p>
-                {errors.pandit && <p className="text-red-500 text-xs mb-3">{errors.pandit}</p>}
-                <div className="space-y-3">
-                  {panditOptions.map((pandit) => (
-                    <button
-                      key={pandit.value}
-                      onClick={() => updateField("pandit", pandit.value)}
-                      className={`w-full text-left p-4 rounded-xl border-2 transition-all duration-200 flex items-center gap-4 ${
-                        formData.pandit === pandit.value
-                          ? "border-maroon bg-maroon/5 shadow-sm"
-                          : "border-ivory-dark bg-white hover:border-maroon/30"
-                      }`}
-                    >
-                      <div className="w-12 h-12 bg-maroon/10 rounded-full flex items-center justify-center shrink-0">
-                        <User className="w-5 h-5 text-maroon/50" />
-                      </div>
-                      <div className="flex-1 min-w-0">
-                        <p className="font-medium text-charcoal text-sm">{pandit.name}</p>
-                        <p className="text-xs text-charcoal-light">{pandit.spec}</p>
-                        <div className="flex items-center gap-3 mt-1 text-xs text-charcoal-light">
-                          <span className="flex items-center gap-0.5"><Clock className="w-3 h-3" />{pandit.exp}</span>
-                          <span className="flex items-center gap-0.5"><Star className="w-3 h-3 text-saffron fill-saffron" />{pandit.rating}</span>
-                        </div>
-                      </div>
-                    </button>
-                  ))}
-                </div>
-              </motion.div>
-            )}
-
-            {/* STEP 3: DATE & TIME */}
-            {step === 3 && (
-              <motion.div key="step3" initial={{ opacity: 0, x: 20 }} animate={{ opacity: 1, x: 0 }} exit={{ opacity: 0, x: -20 }}>
                 <h2 className="text-xl md:text-2xl font-bold text-maroon mb-2">Select Date & Time</h2>
                 <p className="text-charcoal-light text-sm mb-6">When would you like the ceremony performed?</p>
                 <div className="space-y-5">
@@ -288,9 +235,9 @@ export default function TalkToUsPage() {
               </motion.div>
             )}
 
-            {/* STEP 4: CUSTOMER DETAILS */}
-            {step === 4 && (
-              <motion.div key="step4" initial={{ opacity: 0, x: 20 }} animate={{ opacity: 1, x: 0 }} exit={{ opacity: 0, x: -20 }}>
+            {/* STEP 3: CUSTOMER DETAILS */}
+            {step === 3 && (
+              <motion.div key="step3" initial={{ opacity: 0, x: 20 }} animate={{ opacity: 1, x: 0 }} exit={{ opacity: 0, x: -20 }}>
                 <h2 className="text-xl md:text-2xl font-bold text-maroon mb-2">Your Details</h2>
                 <p className="text-charcoal-light text-sm mb-6">Tell us about yourself so we can contact you.</p>
                 <div className="space-y-4">
@@ -323,9 +270,9 @@ export default function TalkToUsPage() {
               </motion.div>
             )}
 
-            {/* STEP 5: REVIEW */}
-            {step === 5 && (
-              <motion.div key="step5" initial={{ opacity: 0, x: 20 }} animate={{ opacity: 1, x: 0 }} exit={{ opacity: 0, x: -20 }}>
+            {/* STEP 4: REVIEW */}
+            {step === 4 && (
+              <motion.div key="step4-review" initial={{ opacity: 0, x: 20 }} animate={{ opacity: 1, x: 0 }} exit={{ opacity: 0, x: -20 }}>
                 <h2 className="text-xl md:text-2xl font-bold text-maroon mb-2">Review Your Booking</h2>
                 <p className="text-charcoal-light text-sm mb-6">Please confirm all details before submitting.</p>
                 <div className="bg-white border border-ivory-dark rounded-2xl overflow-hidden">
@@ -333,10 +280,6 @@ export default function TalkToUsPage() {
                     <div className="flex justify-between items-center pb-3 border-b border-ivory-dark">
                       <span className="text-sm text-charcoal-light">Pooja</span>
                       <span className="text-sm font-medium text-charcoal">{selectedPooja?.label}</span>
-                    </div>
-                    <div className="flex justify-between items-center pb-3 border-b border-ivory-dark">
-                      <span className="text-sm text-charcoal-light">Pandit</span>
-                      <span className="text-sm font-medium text-charcoal">{selectedPandit?.name}</span>
                     </div>
                     <div className="flex justify-between items-center pb-3 border-b border-ivory-dark">
                       <span className="text-sm text-charcoal-light">Date</span>
@@ -361,16 +304,16 @@ export default function TalkToUsPage() {
                   </div>
                   <div className="bg-saffron/10 p-4 border-t border-saffron/20">
                     <p className="text-xs text-charcoal-light text-center">
-                      Final pricing confirmed after pandit consultation. No payment required now.
+                      Final pricing confirmed after consultation. No payment required now.
                     </p>
                   </div>
                 </div>
               </motion.div>
             )}
 
-            {/* STEP 6: CONFIRMATION */}
-            {step === 6 && (
-              <motion.div key="step6" initial={{ opacity: 0, scale: 0.95 }} animate={{ opacity: 1, scale: 1 }} className="text-center">
+            {/* STEP 5: CONFIRMATION */}
+            {step === 5 && (
+              <motion.div key="step5-confirm" initial={{ opacity: 0, scale: 0.95 }} animate={{ opacity: 1, scale: 1 }} className="text-center">
                 <div className="w-20 h-20 bg-saffron/20 rounded-full flex items-center justify-center mx-auto mb-6">
                   <CheckCircle2 className="w-10 h-10 text-saffron-dark" />
                 </div>
@@ -391,10 +334,6 @@ export default function TalkToUsPage() {
                     <div className="flex justify-between">
                       <span className="text-xs text-charcoal-light">Pooja</span>
                       <span className="text-xs font-medium text-charcoal">{selectedPooja?.label}</span>
-                    </div>
-                    <div className="flex justify-between">
-                      <span className="text-xs text-charcoal-light">Pandit</span>
-                      <span className="text-xs font-medium text-charcoal">{selectedPandit?.name}</span>
                     </div>
                     <div className="flex justify-between">
                       <span className="text-xs text-charcoal-light">Date & Time</span>
@@ -422,7 +361,7 @@ export default function TalkToUsPage() {
           </AnimatePresence>
 
           {/* Navigation Buttons */}
-          {step < 6 && (
+          {step < 5 && (
             <div className="flex items-center justify-between mt-10 pt-6 border-t border-ivory-dark">
               {step > 1 ? (
                 <button onClick={prevStep} className="flex items-center gap-2 text-sm font-medium text-charcoal-light hover:text-maroon transition-colors">
@@ -431,11 +370,11 @@ export default function TalkToUsPage() {
               ) : (
                 <div />
               )}
-              {step < 5 ? (
+              {step < 4 ? (
                 <Button variant="primary" size="md" onClick={nextStep}>
                   Continue <ArrowRight className="w-4 h-4" />
                 </Button>
-              ) : step === 5 ? (
+              ) : step === 4 ? (
                 <Button variant="saffron" size="lg" onClick={submitBooking} className={isSubmitting ? "opacity-70" : ""}>
                   {isSubmitting ? "Submitting..." : "Confirm Booking"} <CheckCircle2 className="w-5 h-5" />
                 </Button>
@@ -446,7 +385,7 @@ export default function TalkToUsPage() {
       </section>
 
       {/* ═══════════════════════ ALTERNATIVE: QUICK CONTACT ═══════════════════════ */}
-      {step < 6 && (
+      {step < 5 && (
         <section className="py-12 bg-ivory-dark border-t border-ivory-dark">
           <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
             <p className="text-charcoal-light text-sm mb-4">

@@ -36,18 +36,6 @@ const timeline = [
     highlight: "Rudrabhishek & Ganga Pooja",
   },
   {
-    title: "Hyderabad Region",
-    description:
-      "I have gained experience in Hyderabad conducting Shata Chandi Yaga, Rudra Yaga, Manyu Sukta Homa, Lakshmi Narayana Parayana Japa Homa. Additionally, I have been involved in Japa Tapa, various Poojas, sacrifices, and Yagnas in the Hyderabad region.",
-    highlight: "Multiple Yagas & Homas",
-  },
-  {
-    title: "Maharashtra, Gujarat, Odisha & Andhra Pradesh",
-    description:
-      "My Pooja services have taken me across Maharashtra, Gujarat, Odisha, and Andhra Pradesh (Tirupati–Tirumala), where I have performed sacred rituals including Rudra Yaga, Sudarshana Yaga, Navachandi Yaga, Ganapati Pratishta, and Veda Parayana, enriching my experience in diverse Vedic traditions. I have also performed a Manaskalpa Chandika Yaga Homa/Havan at the residence of D. K. Shivakumar in Bengaluru.",
-    highlight: "Pan-India spiritual service",
-  },
-  {
     title: "Karnataka — Prominent Personalities",
     description:
       "At the residence of MLA Gopalaiah in Kamakshipalya, a Navagraha Pooja and Havan were conducted. In Huliyurdurga, Tumkur, a Shata Chandi Yaga was organized at the Vidya Chowdeshwari Temple.",
@@ -64,12 +52,6 @@ const timeline = [
     description:
       "In revered locations like Dakshin Kashi Gokarna and Mysore Talakaveri Kshetra Shrirangapattana, I conduct Moksh Narayan Bali, Tripindi Shradha, Sarva Prayaschitta, and Tila Homa, each performed with utmost devotion and precision.",
     highlight: "Sacred Kshetra rituals",
-  },
-  {
-    title: "Pan-India Yagas & Homas",
-    description:
-      "I have conducted sacred Poojas, Yagas, and Homas across Maharashtra, Delhi, Hyderabad, Tamil Nadu, Kerala, Goa, Odisha, and Karnataka. My experience includes Ashlesha Bali, Sarpa Samskara, Sarpa Pratishthapanam, Pratyangira Homa, Aghorastra Homa, Sudarshana Yaga, and Chandi Yaga.",
-    highlight: "Nationwide spiritual service",
   },
   {
     title: "Film Director Shrikant Sharma, Bengaluru",
@@ -238,7 +220,7 @@ export default function MyJourneyPage() {
               <div className="absolute -bottom-4 -right-4 w-full h-full border-2 border-saffron/30 rounded-2xl -z-10" />
               {/* Experience badge */}
               <div className="absolute -bottom-6 -left-4 md:-left-6 bg-maroon text-white px-5 py-3 rounded-xl shadow-xl">
-                <p className="text-2xl font-bold">15+</p>
+                <p className="text-2xl font-bold">10+</p>
                 <p className="text-xs text-white/70">Years of Devotion</p>
               </div>
             </motion.div>
@@ -255,11 +237,11 @@ export default function MyJourneyPage() {
                 The Story Behind the Mission
               </span>
               <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-maroon mb-5 leading-tight">
-                From 15+ Years of Devotion to a Trusted Purohit
+                From 10+ Years of Devotion to a Trusted Purohit
               </h2>
               <div className="space-y-4 text-charcoal leading-[1.75] text-[15px]">
                 <p>
-                  I have over 15 years of experience in performing Pooja, Homa, and Havan, 
+                  I have over 10 years of experience in performing Pooja, Homa, and Havan, 
                   with a deep connection to the sacred traditions of Gokarna. I have been 
                   performing these rituals daily at the renowned Gokarna Mahabaleshwaram Temple, 
                   known as South Kashi, following authentic Vedic practices with devotion and sincerity.
