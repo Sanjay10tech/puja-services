@@ -119,15 +119,9 @@ const experienceStats = [
   { value: "4.9/5", label: "Devotee Rating", icon: Award },
 ];
 
-const photoStory = [
-  { title: "Sacred Ceremony", aspect: "tall", image: "/images/journey-1.jpg" },
-  { title: "Vedic Rituals", aspect: "wide", image: "/images/journey-2.jpg" },
-  { title: "Havan Ceremony", aspect: "square", image: "/images/journey-3.png" },
-  { title: "Temple Pooja", aspect: "tall", image: "/images/journey-4.png" },
-  { title: "Devotional Service", aspect: "wide", image: "/images/journey-5.png" },
-  { title: "Sacred Traditions", aspect: "square", image: "/images/journey-6.png" },
-  { title: "Yaga Performance", aspect: "wide", image: "/images/journey-7.png" },
-  { title: "Blessing Devotees", aspect: "square", image: "/images/journey-8.png" },
+const photoStory: { title: string; aspect: string; image: string }[] = [
+  // Images removed — add new images here in the same format:
+  // { title: "Your Title", aspect: "tall", image: "/images/your-image.jpg" },
 ];
 
 /* ───────────────────────── PAGE ───────────────────────── */
