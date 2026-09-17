@@ -17,24 +17,27 @@ interface GalleryImage {
 }
 
 const GALLERY_IMAGES: GalleryImage[] = [
-  { id: 1, src: "/images/gallery/pooja-setup-1.webp", title: "Rudrabhisheka at Dawn", category: "Puja Ceremony", vip: true, size: "featured" },
-  { id: 2, src: "/images/gallery/gokarna-temple-1.webp", title: "Mahabaleshwar Temple", category: "Sacred Ritual", vip: false, size: "standard" },
-  { id: 3, src: "/images/gallery/pandit-chanting.webp", title: "Vedic Mantra Chanting", category: "Traditional Ceremony", vip: true, size: "large" },
-  { id: 4, src: "/images/gallery/havan-ceremony.webp", title: "Sacred Havan Fire", category: "Homa & Havan", vip: true, size: "standard" },
-  { id: 5, src: "/images/gallery/gokarna-beach.webp", title: "Gokarna Om Beach", category: "Divine Details", vip: false, size: "large" },
-  { id: 6, src: "/images/gallery/devotees-prayer.webp", title: "Devotees in Prayer", category: "Puja Ceremony", vip: false, size: "standard" },
-  { id: 7, src: "/images/gallery/navagraha-mandal.webp", title: "Navagraha Pooja Mandal", category: "Sacred Ritual", vip: true, size: "featured" },
-  { id: 8, src: "/images/gallery/pandit-portrait.webp", title: "Pandit Raghunath Sharma", category: "Traditional Ceremony", vip: true, size: "standard" },
-  { id: 9, src: "/images/gallery/temple-evening.webp", title: "Evening Aarti", category: "Festival Celebration", vip: false, size: "large" },
-  { id: 10, src: "/images/gallery/havan-offerings.webp", title: "Havan Samagri", category: "Homa & Havan", vip: false, size: "standard" },
-  { id: 11, src: "/images/gallery/gokarna-sunrise.webp", title: "Sunrise at Gokarna", category: "Divine Details", vip: false, size: "standard" },
-  { id: 12, src: "/images/gallery/family-blessing.webp", title: "Family Blessings", category: "Puja Ceremony", vip: true, size: "large" },
-  { id: 13, src: "/images/gallery/pooja-flowers.webp", title: "Floral Decoration", category: "Divine Details", vip: false, size: "standard" },
-  { id: 14, src: "/images/gallery/pandit-teaching.webp", title: "Sharing Knowledge", category: "Traditional Ceremony", vip: true, size: "standard" },
-  { id: 15, src: "/images/gallery/temple-architecture.webp", title: "Temple Pillars", category: "Sacred Ritual", vip: false, size: "featured" },
-  { id: 16, src: "/images/gallery/group-havan.webp", title: "Community Havan", category: "Homa & Havan", vip: false, size: "large" },
-  { id: 17, src: "/images/gallery/devotee-offering.webp", title: "Offering Prayers", category: "Festival Celebration", vip: true, size: "standard" },
-  { id: 18, src: "/images/gallery/gokarna-coastline.webp", title: "Sacred Coastline", category: "Divine Details", vip: false, size: "standard" },
+  // Signature Collection — VIP images
+  { id: 1, src: "/images/gallery/signature/s1.jpeg", title: "Sacred Ceremony", category: "Signature Collection", vip: true, size: "featured" },
+  { id: 2, src: "/images/gallery/signature/s2.jpeg", title: "Vedic Ritual", category: "Signature Collection", vip: true, size: "standard" },
+  { id: 3, src: "/images/gallery/signature/s3.jpeg", title: "Divine Blessings", category: "Signature Collection", vip: true, size: "large" },
+  { id: 4, src: "/images/gallery/signature/s4.jpeg", title: "Sacred Havan", category: "Signature Collection", vip: true, size: "standard" },
+  { id: 5, src: "/images/gallery/signature/s5.jpeg", title: "Pooja Moments", category: "Signature Collection", vip: true, size: "standard" },
+  { id: 6, src: "/images/gallery/signature/s6.jpeg", title: "Temple Rituals", category: "Signature Collection", vip: true, size: "large" },
+  { id: 7, src: "/images/gallery/signature/s7.jpeg", title: "Sacred Traditions", category: "Signature Collection", vip: true, size: "featured" },
+  { id: 8, src: "/images/gallery/signature/s8.jpeg", title: "Yaga Ceremony", category: "Signature Collection", vip: true, size: "standard" },
+  { id: 9, src: "/images/gallery/signature/s9.jpeg", title: "Divine Service", category: "Signature Collection", vip: true, size: "large" },
+  { id: 10, src: "/images/gallery/signature/s10.jpeg", title: "Blessing Devotees", category: "Signature Collection", vip: true, size: "standard" },
+  { id: 11, src: "/images/gallery/signature/s11.jpeg", title: "Sacred Offering", category: "Signature Collection", vip: true, size: "standard" },
+  { id: 12, src: "/images/gallery/signature/s12.jpeg", title: "Holy Ceremony", category: "Signature Collection", vip: true, size: "large" },
+  { id: 13, src: "/images/gallery/signature/s13.jpeg", title: "Vedic Devotion", category: "Signature Collection", vip: true, size: "standard" },
+  { id: 14, src: "/images/gallery/signature/s14.jpeg", title: "Spiritual Grace", category: "Signature Collection", vip: true, size: "featured" },
+  { id: 15, src: "/images/gallery/signature/s15.jpeg", title: "Sacred Devotion", category: "Signature Collection", vip: true, size: "standard" },
+  { id: 16, src: "/images/gallery/signature/s16.jpeg", title: "Divine Ritual", category: "Signature Collection", vip: true, size: "large" },
+  { id: 17, src: "/images/gallery/signature/s17.jpeg", title: "Holy Offering", category: "Signature Collection", vip: true, size: "standard" },
+  { id: 18, src: "/images/gallery/signature/s18.jpeg", title: "Vedic Ceremony", category: "Signature Collection", vip: true, size: "standard" },
+  { id: 19, src: "/images/gallery/signature/s19.jpeg", title: "Blessed Moments", category: "Signature Collection", vip: true, size: "large" },
+  { id: 20, src: "/images/gallery/signature/s20.jpeg", title: "Sacred Grace", category: "Signature Collection", vip: true, size: "standard" },
 ];
 
 const sizeHeights = {
@@ -42,6 +45,18 @@ const sizeHeights = {
   large: "h-[260px] sm:h-[320px] md:h-[360px] lg:h-[420px]",
   standard: "h-[220px] sm:h-[260px] md:h-[280px] lg:h-[320px]",
 };
+
+interface SacredFilm {
+  id: number;
+  src: string;
+  title: string;
+  category: string;
+}
+
+const SACRED_FILMS: SacredFilm[] = [
+  { id: 1, src: "/videos/mo1.mp4", title: "Sacred Ceremony Film", category: "Divine Moments" },
+  { id: 2, src: "/videos/mo2.mp4", title: "Vedic Ritual Film", category: "Divine Moments" },
+];
 
 /* ───────────────────────── LIGHTBOX ───────────────────────── */
 
@@ -124,10 +139,12 @@ function Lightbox({
             transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
             className="max-w-5xl w-full flex items-center justify-center"
           >
-            <div className="relative w-full max-h-[70vh] rounded-2xl overflow-hidden border border-saffron/20 shadow-2xl">
-              <div className="w-full aspect-[16/10] bg-gradient-to-br from-maroon/15 via-charcoal/30 to-saffron/10 flex items-center justify-center">
-                <Camera className="w-14 h-14 text-white/15" />
-              </div>
+            <div className="relative w-full max-h-[70vh] rounded-2xl overflow-hidden border border-saffron/20 shadow-2xl bg-charcoal flex items-center justify-center">
+              <img
+                src={current.src}
+                alt={current.title}
+                className="w-full max-h-[70vh] object-contain"
+              />
             </div>
           </motion.div>
         </AnimatePresence>
@@ -167,9 +184,12 @@ function GalleryCard({ image, index, onClick }: { image: GalleryImage; index: nu
       >
         {/* Image with zoom */}
         <div className="absolute inset-0 group-hover:scale-[1.06] transition-transform duration-[650ms]" style={{ transitionTimingFunction: "cubic-bezier(0.22, 1, 0.36, 1)" }}>
-          <div className="w-full h-full bg-gradient-to-br from-maroon/12 via-ivory-dark to-saffron/8 flex items-center justify-center">
-            <Camera className="w-10 h-10 text-maroon/12" />
-          </div>
+          <img
+            src={image.src}
+            alt={image.title}
+            className="w-full h-full object-cover"
+            loading="lazy"
+          />
         </div>
 
         {/* Vignette */}
@@ -207,6 +227,36 @@ function GalleryCard({ image, index, onClick }: { image: GalleryImage; index: nu
   );
 }
 
+/* ───────────────────────── FILM CARD ───────────────────────── */
+
+function FilmCard({ film, index }: { film: SacredFilm; index: number }) {
+  return (
+    <motion.div
+      initial={{ opacity: 0, y: 25, scale: 0.98 }}
+      whileInView={{ opacity: 1, y: 0, scale: 1 }}
+      viewport={{ once: true, margin: "-40px" }}
+      transition={{ delay: index * 0.1, duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
+    >
+      <div className="relative rounded-[20px] overflow-hidden border border-saffron/10 shadow-md hover:shadow-2xl hover:shadow-maroon/10 transition-all duration-500 bg-charcoal">
+        <video
+          className="w-full h-full object-cover bg-charcoal"
+          controls
+          playsInline
+          preload="metadata"
+        >
+          <source src={film.src} type="video/mp4" />
+          Your browser does not support the video tag.
+        </video>
+        {/* Caption */}
+        <div className="p-4">
+          <p className="text-saffron/80 text-[10px] uppercase tracking-widest mb-1">{film.category}</p>
+          <p className="text-white font-serif font-semibold text-base md:text-lg leading-tight">{film.title}</p>
+        </div>
+      </div>
+    </motion.div>
+  );
+}
+
 /* ───────────────────────── PAGE ───────────────────────── */
 
 export default function GalleryPage() {
@@ -215,7 +265,7 @@ export default function GalleryPage() {
 
   const filteredImages = activeTab === "vip"
     ? GALLERY_IMAGES.filter((img) => img.vip)
-    : GALLERY_IMAGES;
+    : GALLERY_IMAGES.filter((img) => !img.vip);
 
   const openLightbox = (id: number) => {
     const index = filteredImages.findIndex((img) => img.id === id);
@@ -312,16 +362,24 @@ export default function GalleryPage() {
               exit={{ opacity: 0 }}
               transition={{ duration: 0.3 }}
             >
-              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 auto-rows-auto gap-4 md:gap-5">
-                {filteredImages.map((image, index) => (
-                  <GalleryCard
-                    key={image.id}
-                    image={image}
-                    index={index}
-                    onClick={() => openLightbox(image.id)}
-                  />
-                ))}
-              </div>
+              {activeTab === "all" ? (
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-5 md:gap-6">
+                  {SACRED_FILMS.map((film, index) => (
+                    <FilmCard key={film.id} film={film} index={index} />
+                  ))}
+                </div>
+              ) : (
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 auto-rows-auto gap-4 md:gap-5">
+                  {filteredImages.map((image, index) => (
+                    <GalleryCard
+                      key={image.id}
+                      image={image}
+                      index={index}
+                      onClick={() => openLightbox(image.id)}
+                    />
+                  ))}
+                </div>
+              )}
             </motion.div>
           </AnimatePresence>
         </div>
