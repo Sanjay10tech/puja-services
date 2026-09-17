@@ -1,7 +1,7 @@
 "use client";
 
 import { motion, AnimatePresence } from "framer-motion";
-import { Camera, X, ChevronLeft, ChevronRight, ZoomIn, ExternalLink } from "lucide-react";
+import { Camera, X, ChevronLeft, ChevronRight, ZoomIn } from "lucide-react";
 import { useState, useEffect, useCallback } from "react";
 import { PageTransition } from "@/components/layout/page-transition";
 
@@ -117,7 +117,6 @@ function Lightbox({
       <div className="flex items-center justify-between px-4 md:px-8 py-5 shrink-0">
         <div>
           <p className="text-white/50 text-xs">{currentIndex + 1} / {images.length}</p>
-          <p className="text-saffron/70 text-[10px] uppercase tracking-wider">{current.category}</p>
         </div>
         <button onClick={onClose} className="w-10 h-10 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center transition-colors" aria-label="Close">
           <X className="w-5 h-5 text-white" />
@@ -152,11 +151,6 @@ function Lightbox({
         <button onClick={onNext} className="absolute right-2 sm:right-3 md:right-8 z-10 w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center transition-colors" aria-label="Next">
           <ChevronRight className="w-5 h-5 sm:w-6 sm:h-6 text-white" />
         </button>
-      </div>
-
-      {/* Caption */}
-      <div className="px-4 py-5 text-center shrink-0">
-        <p className="text-white font-serif font-semibold text-lg">{current.title}</p>
       </div>
     </motion.div>
   );
@@ -214,14 +208,6 @@ function GalleryCard({ image, index, onClick }: { image: GalleryImage; index: nu
           <ZoomIn className="w-4 h-4 text-white" />
         </div>
 
-        {/* Bottom content reveal */}
-        <div className="absolute bottom-0 left-0 right-0 p-5 translate-y-3 group-hover:translate-y-0 opacity-0 group-hover:opacity-100 transition-all duration-500">
-          <p className="text-saffron/80 text-[10px] uppercase tracking-widest mb-1">{image.category}</p>
-          <p className="text-white font-serif font-semibold text-base md:text-lg leading-tight mb-2">{image.title}</p>
-          <span className="inline-flex items-center gap-1 text-white/70 text-xs font-medium hover:text-saffron transition-colors">
-            View Details <ExternalLink className="w-3 h-3" />
-          </span>
-        </div>
       </div>
     </motion.div>
   );
@@ -247,11 +233,6 @@ function FilmCard({ film, index }: { film: SacredFilm; index: number }) {
           <source src={film.src} type="video/mp4" />
           Your browser does not support the video tag.
         </video>
-        {/* Caption */}
-        <div className="p-4">
-          <p className="text-saffron/80 text-[10px] uppercase tracking-widest mb-1">{film.category}</p>
-          <p className="text-white font-serif font-semibold text-base md:text-lg leading-tight">{film.title}</p>
-        </div>
       </div>
     </motion.div>
   );

@@ -34,8 +34,6 @@ const filterPurpose = [
   "Marriage & Relationship",
   "Health & Wellness",
   "Protection & Peace",
-  "Dosha Remedies",
-  "Ancestor Rituals",
 ];
 
 const filterDuration = ["1–2 Hours", "2–4 Hours", "Half Day", "Full Day"];
@@ -178,8 +176,6 @@ export default function ServicesPage() {
         "Marriage & Relationship": ["marriage", "wedding", "relationship", "harmony"],
         "Health & Wellness": ["health", "longevity", "wellness", "healing"],
         "Protection & Peace": ["protection", "peace", "purification", "obstacle"],
-        "Dosha Remedies": ["dosha", "planetary", "navagraha", "remedies"],
-        "Ancestor Rituals": ["ancestor", "pitru", "shradh", "departed"],
       };
       const keywords = purposeMap[selectedPurpose] || [];
       if (keywords.length > 0) {
