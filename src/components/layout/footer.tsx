@@ -96,18 +96,18 @@ export function Footer() {
             <ul className="space-y-3">
               <li>
                 <a
-                  href="tel:+917899148582"
+                  href="tel:+918217487689"
                   className="text-white/70 hover:text-saffron transition-colors text-sm"
                 >
-                  7899148582
+                  8217487689
                 </a>
               </li>
               <li>
                 <a
-                  href="mailto:marathisarvapooja@gmail.com"
+                  href="mailto:gokarnasarvapoojas@gmail.com"
                   className="text-white/70 hover:text-saffron transition-colors text-sm"
                 >
-                  marathisarvapooja@gmail.com
+                  gokarnasarvapoojas@gmail.com
                 </a>
               </li>
             </ul>

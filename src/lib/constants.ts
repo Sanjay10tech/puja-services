@@ -3,9 +3,9 @@ export const BRAND = {
   tagline: "Sacred Rituals, Divine Blessings",
   description:
     "Premium Vedic pooja services and pandit booking platform for all your spiritual needs.",
-  whatsappNumber: "+917899148582",
-  email: "marathisarvapooja@gmail.com",
-  phone: "+91 78991 48582",
+  whatsappNumber: "+918217487689",
+  email: "gokarnasarvapoojas@gmail.com",
+  phone: "+91 82174 87689",
   address: "No. 123, 15th Cross Rd, Ittamadu, Banashankari 3rd Stage, Hosakerehalli, Bengaluru, Karnataka 560085",
 } as const;
 
