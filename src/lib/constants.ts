@@ -3,10 +3,11 @@ export const BRAND = {
   tagline: "Sacred Rituals, Divine Blessings",
   description:
     "Premium Vedic pooja services and pandit booking platform for all your spiritual needs.",
-  whatsappNumber: "+918217487689",
+  whatsappNumber: "+918277358648",
   email: "gokarnasarvapoojas@gmail.com",
-  phone: "+91 82174 87689",
-  address: "No. 123, 15th Cross Rd, Ittamadu, Banashankari 3rd Stage, Hosakerehalli, Bengaluru, Karnataka 560085",
+  phone: "+91 82773 58648",
+  phoneSecondary: "+91 82174 87689",
+  address: "Kotiteertha Road, Nagabeedi, Gokarna – 581326, Tq: Kumata, Dist: U.K., Karnataka",
 } as const;
 
 export const NAV_LINKS = [

@@ -380,6 +380,13 @@ export default function ContactPage() {
                         <p className="text-sm font-medium">{BRAND.phone}</p>
                       </div>
                     </a>
+                    <a href={`tel:${BRAND.phoneSecondary}`} className="flex items-center gap-3 bg-white/10 rounded-lg px-4 py-3 hover:bg-white/20 transition-colors">
+                      <Phone className="w-4 h-4 text-saffron" />
+                      <div>
+                        <p className="text-xs text-white/60">Call Now</p>
+                        <p className="text-sm font-medium">{BRAND.phoneSecondary}</p>
+                      </div>
+                    </a>
                     <a href={WHATSAPP_LINK} target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 bg-[#25D366]/20 rounded-lg px-4 py-3 hover:bg-[#25D366]/30 transition-colors">
                       <MessageCircle className="w-4 h-4 text-[#25D366]" />
                       <div>
@@ -440,18 +447,18 @@ export default function ContactPage() {
                 <MapPin className="w-5 h-5 text-saffron mt-0.5 shrink-0" />
                 <div>
                   <p className="font-semibold text-charcoal text-sm mb-0.5">
-                    Marathi Sarvapooja – Pandit and Astrologer in Bangalore
+                    Gokarna Sarva Poojas – Pandit and Astrologer in Gokarna
                   </p>
                   <p className="text-charcoal-light text-sm">
-                    No. 123, 15th Cross Rd, Ittamadu, Banashankari 3rd Stage,<br />
-                    Hosakerehalli, Bengaluru, Karnataka 560085
+                    Kotiteertha Road, Nagabeedi, Gokarna – 581326,<br />
+                    Tq: Kumata, Dist: U.K., Karnataka
                   </p>
                 </div>
               </div>
 
               <div className="flex flex-col sm:flex-row gap-3">
                 <a
-                  href="https://maps.app.goo.gl/4ezJVGobh8zWGr586"
+                  href="https://www.google.com/maps/search/?api=1&query=Kotiteertha+Road,+Nagabeedi,+Gokarna+581326,+Kumta,+Uttara+Kannada,+Karnataka"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-flex items-center justify-center gap-2 bg-maroon text-white px-5 py-2.5 rounded-lg text-sm font-medium hover:bg-maroon-light transition-all"
@@ -485,7 +492,7 @@ export default function ContactPage() {
                   <span className="text-sm text-charcoal-light">(179+ reviews)</span>
                 </div>
                 <a
-                  href="https://maps.app.goo.gl/4ezJVGobh8zWGr586"
+                  href="https://www.google.com/maps/search/?api=1&query=Kotiteertha+Road,+Nagabeedi,+Gokarna+581326,+Kumta,+Uttara+Kannada,+Karnataka"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="block text-center text-sm text-maroon font-medium underline underline-offset-2 hover:text-maroon-light transition-colors"
@@ -504,14 +511,14 @@ export default function ContactPage() {
               className="rounded-2xl overflow-hidden shadow-lg border border-ivory-dark"
             >
               <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3888.6!2d77.5416959!3d12.9201022!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMTLCsDU1JzEyLjQiTiA3N8KwMzInMzAuMSJF!5e0!3m2!1sen!2sin!4v1692000000000"
+                src="https://www.google.com/maps?q=Kotiteertha%20Road%2C%20Nagabeedi%2C%20Gokarna%20581326%2C%20Kumta%2C%20Uttara%20Kannada%2C%20Karnataka&output=embed"
                 width="100%"
                 height="450"
                 style={{ border: 0 }}
                 allowFullScreen
                 loading="lazy"
                 referrerPolicy="no-referrer-when-downgrade"
-                title="Marathi Sarvapooja Location - Bangalore"
+                title="Gokarna Sarva Poojas Location - Gokarna"
                 className="w-full h-[320px] sm:h-[380px] md:h-[420px] lg:h-[450px]"
               />
             </motion.div>

@@ -96,10 +96,10 @@ export function Footer() {
             <ul className="space-y-3">
               <li>
                 <a
-                  href="tel:+918217487689"
+                  href="tel:+918277358648"
                   className="text-white/70 hover:text-saffron transition-colors text-sm"
                 >
-                  8217487689
+                  8277358648
                 </a>
               </li>
               <li>
@@ -116,10 +116,10 @@ export function Footer() {
               Address
             </h4>
             <p className="text-white/70 text-sm leading-relaxed">
-              No. 123, 15th Cross Rd,<br />
-              Ittamadu, Banashankari 3rd Stage,<br />
-              Hosakerehalli, Bengaluru,<br />
-              Karnataka 560085
+              Kotiteertha Road, Nagabeedi,<br />
+              Gokarna – 581326,<br />
+              Tq: Kumata, Dist: U.K.,<br />
+              Karnataka
             </p>
 
             {/* WhatsApp CTA */}
