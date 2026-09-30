@@ -121,7 +121,7 @@ export default function MyJourneyPage() {
         <div className="absolute top-0 right-0 bottom-0 w-[45%] lg:w-[40%] hidden md:block">
           <img
             src="/images/pandit-manoj.jpg"
-            alt="Manoj Kulkarni Purohit"
+            alt="Dattatreya Bhat Bhadti"
             className="w-full h-full object-cover object-top"
             style={{ objectPosition: "center 20%" }}
           />
@@ -162,7 +162,7 @@ export default function MyJourneyPage() {
               className="inline-flex items-center gap-2 bg-saffron/15 backdrop-blur-sm border border-saffron/25 px-5 py-2 rounded-full mb-6"
             >
               <Sparkles className="w-4 h-4 text-saffron" />
-              <span className="text-sm font-semibold text-white">Manoj Kulkarni Purohit</span>
+              <span className="text-sm font-semibold text-white">Dattatreya Bhat Bhadti</span>
             </motion.div>
 
             <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-[1.1] mb-5">
@@ -209,7 +209,7 @@ export default function MyJourneyPage() {
               <div className="relative aspect-[3/4] max-h-[500px] rounded-2xl overflow-hidden">
                 <img
                   src="/images/pandit-story.jpg"
-                  alt="Manoj Kulkarni Purohit performing pooja"
+                  alt="Dattatreya Bhat Bhadti performing pooja"
                   className="w-full h-full object-cover object-top"
                 />
               </div>
